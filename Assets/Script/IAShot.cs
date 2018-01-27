@@ -5,14 +5,20 @@ using UnityEngine;
 public class IAShot : MonoBehaviour {
 
 	public GameObject projectile;
+	private CharacterStats stats;
+	private double nextAttackAllowed = 0.0f;
+
 	// Use this for initialization
 	void Start () {
+		stats = GetComponent<CharacterStats> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("e"))
+		if (Time.time > nextAttackAllowed) {
+			nextAttackAllowed = Time.time + stats.attackSpeed;
 			CreateProjectile ();
+		}
 
 	}
 

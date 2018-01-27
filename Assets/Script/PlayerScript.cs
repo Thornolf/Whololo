@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
 	
@@ -12,9 +14,13 @@ public class PlayerScript : MonoBehaviour {
 	public Transform sightStart;
 	public Transform sightEnd;
 
+	public UnityEngine.UI.Slider faithSlider;
+	public Text faithText;
+
 	// Use this for initialization
 	void Start () {
 		stats = GetComponent<CharacterStats> ();
+		//faithSlider.value = 100;
 	}
 	
 	// Update is called once per frame
@@ -26,6 +32,8 @@ public class PlayerScript : MonoBehaviour {
 			nextAttackAllowed = Time.time + stats.attackSpeed;
 			Strike ();
 		}
+		//faithSlider.value = stats.hitpoint;
+		faithText.text = stats.hitpoint.ToString ();
 	}
 
 	void Strike() {
