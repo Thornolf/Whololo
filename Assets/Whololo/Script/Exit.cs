@@ -7,7 +7,6 @@ public class Exit : MonoBehaviour
 {
     public float RestartDelay = 1.0f;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
@@ -18,7 +17,6 @@ public class Exit : MonoBehaviour
             Invoke("Restart", RestartDelay);
     }
 
-    // Update is called once per frame
     void Update () {
 		
 	}

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5f68a07114b2a2a4cac8949d1fa90116
+timeCreated: 1517130076
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Faith Collapsing
+  fontNames:
+  - Faith Collapsing
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
