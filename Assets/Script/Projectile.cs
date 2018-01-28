@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		wayPoint = GameObject.Find("Cube");
+		wayPoint = GameObject.FindGameObjectWithTag ("Player");
 		wayPointPos = new Vector2(wayPoint.transform.position.x, wayPoint.transform.position.y);
 	}
 	
@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		print (other.name);
-		if (other.tag == "Food") {
+		if (other.tag == "Player") {
 			other.GetComponent<CharacterStats> ().hitpoint -= 4;
 			Destroy (gameObject);
 		}
