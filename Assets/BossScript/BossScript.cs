@@ -5,9 +5,11 @@ using UnityEngine;
 public class BossScript : MonoBehaviour {
 
 	public GameObject projectile;
+	public GameObject otherProjectile;
 	private CharacterStats stats;
 	private double nextAttackAllowed = 1.0f;
 	private int timeAttacked = 0;
+	private int timeAttackedOther = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -21,13 +23,15 @@ public class BossScript : MonoBehaviour {
 				nextAttackAllowed = Time.time + stats.attackSpeed;
 				CreateProjectile ();
 			}
-		}
-		else if (Time.time > nextAttackAllowed + 1) {
+		} else if (timeAttackedOther <= 30) {
+			CreateProjectileOther ();
+		} else if (Time.time > nextAttackAllowed + 1) {
 			nextAttackAllowed = Time.time + stats.attackSpeed;
 			timeAttacked = 0;
+			timeAttackedOther = 0;
 		}
-
 	}
+		
 
 	void CreateProjectile()
 	{
@@ -51,5 +55,11 @@ public class BossScript : MonoBehaviour {
 		GameObject obj8 = Instantiate (projectile, new Vector2 (transform.position.x, transform.position.y), Quaternion.identity);
 		obj8.GetComponent<BossProjectile>().wayPointPos = new Vector2(40, 40);
 
+	}
+
+	void CreateProjectileOther()
+	{
+		timeAttackedOther++;
+		Instantiate (projectile, new Vector2 (transform.position.x, transform.position.y), Quaternion.identity);
 	}
 }
